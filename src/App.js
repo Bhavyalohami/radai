@@ -10,7 +10,7 @@ import Guide from './pages/Guide';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/radai">
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
