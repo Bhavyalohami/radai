@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/radai/static/css/main.af27b76d.css",
-    "main.js": "/radai/static/js/main.b2e7889e.js",
+    "main.js": "/radai/static/js/main.edbd1843.js",
     "index.html": "/radai/index.html",
     "main.af27b76d.css.map": "/radai/static/css/main.af27b76d.css.map",
-    "main.b2e7889e.js.map": "/radai/static/js/main.b2e7889e.js.map"
+    "main.edbd1843.js.map": "/radai/static/js/main.edbd1843.js.map"
   },
   "entrypoints": [
     "static/css/main.af27b76d.css",
-    "static/js/main.b2e7889e.js"
+    "static/js/main.edbd1843.js"
   ]
 }
