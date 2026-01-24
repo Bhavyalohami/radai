@@ -74,7 +74,7 @@ const Header = () => {
                       }`}
                       onMouseEnter={() => setProductDropdown(true)}
                       onMouseLeave={() => setProductDropdown(false)}
-                      onClick={() => (window.location.href = '/product')}
+                      onClick={() => (window.location.href = '/radai/product')}
                     >
                       {item.name}
                       <ChevronDown className="w-4 h-4 mt-0.5" />

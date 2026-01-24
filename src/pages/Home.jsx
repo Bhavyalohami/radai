@@ -143,16 +143,42 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCounter(prev => ({
-        reports: prev.reports < 10000 ? prev.reports + 100 : 10000,
-        time: prev.time < 85 ? prev.time + 1 : 85,
-        partners: prev.partners < 500 ? prev.partners + 5 : 500,
-        accuracy: prev.accuracy < 98.5 ? prev.accuracy + 0.5 : 98.5
-      }));
-    }, 20);
+    const targets = {
+      reports: 10000,
+      time: 85,
+      partners: 500,
+      accuracy: 98.5
+    };
 
-    return () => clearInterval(interval);
+    const durations = {
+      reports: 2000,
+      time: 1500,
+      partners: 1800,
+      accuracy: 1200
+    };
+
+    const startTime = Date.now();
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / Math.max(...Object.values(durations)), 1);
+
+      // Easing function for smoother animation
+      const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+      setCounter({
+        reports: Math.floor(easeOutCubic(progress) * targets.reports),
+        time: Math.floor(easeOutCubic(progress) * targets.time),
+        partners: Math.floor(easeOutCubic(progress) * targets.partners),
+        accuracy: parseFloat((easeOutCubic(progress) * targets.accuracy).toFixed(1))
+      });
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
   }, []);
 
   const openModal = () => {
